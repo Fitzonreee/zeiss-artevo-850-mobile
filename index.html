@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="ad.size" content="width=320,height=50">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+	var clickTag = "TBD";
+  </script>
+  <title>Zeiss Artveo 850 - Mobile</title>
+  <style>
+
+    /* Temp - for presentation purposes only */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #e2e2e2;
+    }
+  
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #banner {
+      width: 320px;
+      height: 50px;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      background-image: url('assets/images/background-mobile.png');
+    }
+
+    .content-container {
+      margin-left: 12px;
+    }
+
+    .logo {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      top: 14px;
+      right: 12px;
+      opacity: 1;
+    }
+
+    #clickTag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .frame-open-content {
+      position: absolute;
+      top: 8px;
+    }
+
+    .frame-details .detail {
+      position: absolute;
+      top: 50%;
+      margin-top: -5px;
+    }
+
+    .frame-end-content .headline {
+      position: absolute;
+      top: 50%;
+      margin-top: -5px;
+    }
+
+    .frame-end-content .hardware {
+      position: absolute;
+      top: 0;
+      left: 121px;
+    }
+
+    .frame-end-content .cta {
+      position: absolute;
+      top: 50%;
+      margin-top: -7px;
+      right: 56px;
+    }
+  </style>
+</head>
+<body>
+  <div id="banner">
+    <div class="content-container">
+      <div class="frame-open-content">
+        <img src="assets/images/headline.svg" class="headline" alt="Zeiss Artveo 850"/>
+        <img src="assets/images/frame-1-text.svg" class="copy" alt="Confidence in decision-making in vitreoretinal surgery"/>
+      </div>
+      <div class="frame-details">
+        <img src="assets/images/frame-2-text.svg" class="detail detail-1" alt="Customizable 3D digital visualization"/>
+        <img src="assets/images/frame-3-text.svg" class="detail detail-2" alt="Extended depth of field - up to 40%"/>
+        <img src="assets/images/frame-4-text.svg" class="detail detail-3" alt="Intuitive navigation and productivity"/>
+      </div>
+      <div class="frame-end-content">
+        <img src="assets/images/headline.svg" class="headline fade-up" alt="Zeiss Artveo 850"/>
+        <img src="assets/images/hardware.png" class="hardware fade-up" alt="Zeiss Artveo 850 machine with monitor"/>
+        <img src="assets/images/cta.svg" class="cta fade-up" alt="Learn more"/>
+      </div>
+    </div>
+    <img class="logo" src="assets/images/zeiss.svg">
+    <a id="clickTag" href="javascript:void(window.open(clickTag))"></a>
+  </div>
+
+  <script src="assets/js/gsap.min.js"></script>
+  <script>
+    window.onload = function() {
+
+      const tl = gsap.timeline();
+
+      tl
+        .from(".logo", {
+          opacity: 0,
+          duration: 2, 
+          ease: "power2.out" 
+        })
+        // Frame (Open)
+        .from(".frame-open-content", { 
+          opacity: 0, 
+          y: 20, 
+          duration: 1, 
+          ease: "power2.out" 
+        }, "<")
+        .to(".frame-open-content", { 
+          opacity: 0, 
+          y: -20, 
+          duration: 1, 
+          ease: "power2.out" 
+        }, "+=2")
+
+        // Frame (Details)
+        .from(".frame-details .detail-1", { 
+          opacity: 0, 
+          y: 20, 
+          duration: 1, 
+          ease: "power2.out" 
+        })
+        .to(".frame-details .detail-1", { 
+          opacity: 0, 
+          y: -20, 
+          duration: 1, 
+          ease: "power2.out" 
+        }, "+=2")
+        .from(".frame-details .detail-2", { 
+          opacity: 0, 
+          y: 20, 
+          duration: 1, 
+          ease: "power2.out" 
+        })
+        .to(".frame-details .detail-2", { 
+          opacity: 0, 
+          y: -20, 
+          duration: 1, 
+          ease: "power2.out" 
+        }, "+=2")
+        .from(".frame-details .detail-3", { 
+          opacity: 0, 
+          y: 20, 
+          duration: 1, 
+          ease: "power2.out" 
+        })
+        .to(".frame-details .detail-3", { 
+          opacity: 0, 
+          y: -20, 
+          duration: 1, 
+          ease: "power2.out" 
+        }, "+=2")
+        // Frame (End)
+        .from(".fade-up", { 
+          opacity: 0, 
+          y: 20, 
+          duration: 1,
+          stagger: 0.3,
+          ease: "power2.out" 
+        })
+        
+    };
+  </script>
+</body>
+</html>
